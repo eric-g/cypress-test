@@ -8,13 +8,11 @@ describe('When we play the game', () => {
   })
 
   it('inits the board as empty', () => {
-    var player = ''; // no player has made a move yet
     // 'X' always starts the game
     cy.get('.status').invoke('text').should('contain', 'X');
     cy.get('.square')
-      .each((button) => {
-        cy.get(button)
-        cy.get(button).should('have.text', player); // should be empty
+      .each(($el) => {
+        cy.wrap($el).should('have.text', ''); // should be empty
       })
   })
 
@@ -23,7 +21,7 @@ describe('When we play the game', () => {
     cy.get('.square')
       .each((button, idx, list) => {
         cy.get(button).click();
-        cy.wait(150);
+        cy.wait(150); // only to slow down the test for visibility
         cy.get(button).should('have.text', player);
         // Check alternating player turn as 'Next playa'
         player = player == 'X' ? 'O' : 'X';
@@ -39,14 +37,10 @@ describe('When we play the game', () => {
     for (let game = 0; game < numGames; game++) {
       const winner = playerMoves[game].winner;
       const moves = playerMoves[game].moves;
-      for (let i = 0; i < playerMoves[game].moves.length; i++) {
+      for (let i = 0; i < moves.length; i++) {
         cy.get('.square')
-          .each(($el, index, $list) => {
-            if (index == moves[i]) {
-              $el.click();
-              cy.wait(150);
-            }
-          })
+          .eq(moves[i]).click();
+          cy.wait(150);
       }
       // Check the winner of the game
       cy.get('.status').invoke('text').should('contain', winner);
