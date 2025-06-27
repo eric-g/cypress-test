@@ -31,7 +31,7 @@ describe('When we play the game', () => {
       })
   })
 
-  it.only('can win, declare winner and reset the board', () => {
+  it.only('can win or tie, declare winner and reset the board', () => {
 
     const numGames = playerMoves.length;
     let player = 'X';
