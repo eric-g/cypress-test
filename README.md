@@ -11,7 +11,7 @@ Test Data is JSON: /cypress/e2e/fixtures/tictac.json
 - `git clone https://github.com/eric-g/cypress-test.git` (HTTPS)
 2. Navigate into project: `cd cypress-test`
 2. Install dependencies: `npm install`
-3. Run it! `npx cypress run`
+3. Run it! `npx cypress run --headed` (run headed optionally to observe in browser)
 
 ### Related
 TicTacToe repo: https://github.com/eric-g/my-app
