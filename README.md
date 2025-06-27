@@ -1,7 +1,7 @@
 # Tic-Tac-Toe Automated Tests
 Uses Cypress framework and Javascript to run some basic data-driven tests as a player of React-based Tic-Tac-Toe game at: [Tic-Tac-Toe](https://eric-g.github.io/my-app/)
 
-Test data describes moves to make for each test resulting in a different outcome of the game.
+Test data describes player ('X' or 'O') moves to make for each test resulting in a different outcome of the game.
 
 Assertions are made during game play and upon game conclusion.
 - Board is initialized correctly.
